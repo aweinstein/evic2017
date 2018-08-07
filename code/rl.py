@@ -263,21 +263,21 @@ class ML(object):
 
 
 if __name__ == '__main__':
-    np.random.seed(42)
+    #np.random.seed(42)
     env = Environment()
     alpha = 0.1
-    beta = 0.5
+    beta = 10
     agent = Agent(env, alpha=alpha, beta=beta)
 
     T = 200
     for _ in range(T):
         agent.run()
 
-    # plot_simulation(agent)
+    plot_simulation(agent)
     ml = ML(agent.log)
     r = ml.fit()
     alpha_hat, beta_hat = r.x
 
 
-    ml.plot_ml(alpha, beta, alpha_hat, beta_hat)
+    #ml.plot_ml(alpha, beta, alpha_hat, beta_hat)
     plt.show()
